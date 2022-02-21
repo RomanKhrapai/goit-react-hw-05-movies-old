@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-// import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 import { fetchTrendingMovie } from 'services/api';
 
@@ -19,20 +19,16 @@ export default function HomePage() {
     }
   };
 
-  // const navigate = useNavigate();
-  // const { pathname } = useLocation();
-
-  // useEffect(() => {
-  //   if (pathname !== '/') {
-  //     navigate('/', { replace: true });
-  //   } else {
-  //     fetch();
-  //   }
-  // }, [pathname, navigate]);
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   useEffect(() => {
-    fetch();
-  }, []);
+    if (pathname !== '/') {
+      navigate('/', { replace: true });
+    } else {
+      fetch();
+    }
+  }, [pathname, navigate]);
 
   return (
     <>
