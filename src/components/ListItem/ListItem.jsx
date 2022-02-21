@@ -1,13 +1,10 @@
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Item } from './Item.styles';
 
-const ImageGalleryItem = ({ id, name }) => {
+export default function ImageGalleryItem({ id, value }) {
   return (
     <Item>
-      <Link to={`/movies/${id}`}>{name}</Link>
+      <Link to={`/movies/${id}`}>{value}</Link>
     </Item>
   );
-};
-
-export default ImageGalleryItem;
+}

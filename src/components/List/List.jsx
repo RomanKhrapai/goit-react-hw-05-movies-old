@@ -1,15 +1,22 @@
+import PropTypes from 'prop-types';
 import Item from 'components/ListItem';
-import { Ul } from './Ul.styles';
+import { CastomList } from './CastomList.styles';
 
-function List({ data }) {
-  console.log(data);
+List.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      original_title: PropTypes.string.isRequired,
+    })
+  ),
+};
+
+export default function List({ data }) {
   return (
-    <Ul>
+    <CastomList>
       {data.map(({ id, original_title }) => (
-        <Item key={id} id={id} name={original_title} />
+        <Item key={id} id={id} value={original_title} />
       ))}
-    </Ul>
+    </CastomList>
   );
 }
-
-export default List;

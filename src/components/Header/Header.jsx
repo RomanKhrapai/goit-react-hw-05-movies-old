@@ -1,13 +1,11 @@
-//import { useState } from 'react';
-//import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
-import { Layout } from './Layout.styles';
+import { Container } from './Container.styles';
 import s from './NavLink.module.css';
 
 function Header() {
   return (
-    <Layout>
+    <Container>
       <NavLink
         to="/"
         className={({ isActive }) =>
@@ -24,7 +22,7 @@ function Header() {
       >
         Movies
       </NavLink>
-    </Layout>
+    </Container>
   );
 }
 

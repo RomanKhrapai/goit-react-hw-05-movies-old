@@ -1,36 +1,40 @@
 import { useEffect, useState } from 'react';
-//import { fetchTrendingMovie } from '../../services/api';
+import { useNavigate, useLocation } from 'react-router-dom';
+
 import { fetchTrendingMovie } from 'services/api';
 
 import List from 'components/List';
 
-function HomePage() {
+export default function HomePage() {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
-  //console.log(fetchTrendingMovie);
 
-  const fetch = async page => {
+  const fetch = async () => {
     try {
-      const data = await fetchTrendingMovie(page);
+      const data = await fetchTrendingMovie();
       setData([...data.results]);
     } catch (error) {
-      console.log(2);
       setData(null);
       setError('Error server!!!');
     }
   };
 
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
+
   useEffect(() => {
-    fetch(1);
-  }, []);
+    if (pathname !== '/') {
+      navigate('/', { replace: true });
+    } else {
+      fetch();
+    }
+  }, [pathname, navigate]);
 
   return (
     <>
       <h1> Trending today</h1>
       {data && <List data={data} />}
-      {error ?? <h2>{error}</h2>}
+      {error && <h2>{error}</h2>}
     </>
   );
 }
-
-export default HomePage;

@@ -5,18 +5,15 @@ axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 
 export const t = 5;
 
-export const fetchSearchMovie = async (page, search) => {
+export const fetchSearchMovie = async search => {
   const response = await axios.get(
-    `search/movie?api_key=${key}&language=en-US&page=${page}&include_adult=false&query=${search}`
+    `search/movie?api_key=${key}&language=en-US&include_adult=false&query=${search}`
   );
-  console.log(response);
   return response.data;
 };
 
-export const fetchTrendingMovie = async page => {
-  const response = await axios.get(
-    `trending/movie/day?api_key=${key}&page=${page}`
-  );
+export const fetchTrendingMovie = async () => {
+  const response = await axios.get(`trending/movie/day?api_key=${key}`);
   return response.data;
 };
 
@@ -34,9 +31,9 @@ export const fetchMovieCredits = async movieId => {
   return response.data;
 };
 
-export const fetchMovieReviews = async (page, movieId) => {
+export const fetchMovieReviews = async movieId => {
   const response = await axios.get(
-    `movie/${movieId}/reviews?api_key=${key}&language=en-US&${page}`
+    `movie/${movieId}/reviews?api_key=${key}&language=en-US`
   );
   return response.data;
 };
