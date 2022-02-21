@@ -12,10 +12,10 @@ export const App = () => {
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<Outlet />}>
-          <Route index element={<HomePage />} />
-          <Route path="movies" element={<MoviesPage />} />
-          <Route path="movies/:postId" element={<Outlet />}>
+        <Route path="/" element={<Outlet />} />
+        {/* <Route index element={<HomePage />} /> */}
+        <Route path="movies" element={<MoviesPage />} />
+        {/* <Route path="movies/:postId" element={<Outlet />}>
             <Route index element={<MovieDetailsPage />} />
             <Route
               path="cast"
@@ -33,9 +33,9 @@ export const App = () => {
                 </MovieDetailsPage>
               }
             />
-          </Route>
-          {/* <Route path="*" element={<HomePage />} /> */}
-        </Route>
+          </Route> */}
+        {/* <Route path="*" element={<HomePage />} /> */}
+        {/* </Route> */}
       </Routes>
     </>
   );
