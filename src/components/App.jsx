@@ -1,11 +1,11 @@
-import { Route, Routes, Outlet } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import Header from './Header';
 import HomePage from './HomePage';
 import MoviesPage from './MoviesPage';
-import MovieDetailsPage from './MovieDetailsPage';
-import Cast from './Cast';
-import Reviews from './Reviews';
+// import MovieDetailsPage from './MovieDetailsPage';
+// import Cast from './Cast';
+// import Reviews from './Reviews';
 
 export const App = () => {
   return (
