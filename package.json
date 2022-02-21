@@ -2,7 +2,7 @@
   "name": "react-homework-template",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://RomanKhrapai.github.io/goit-react-hw-05-movies/",
+  "homepage": "https://romankhrapai-goit-react-hw-05-movies.netlify.app/",
   "dependencies": {
     "@emotion/styled": "^11.6.0",
     "@testing-library/jest-dom": "^5.16.1",
